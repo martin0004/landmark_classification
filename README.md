@@ -24,7 +24,7 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 
 [DATA](#data)
 
-&emsp;[Overview](#overview) <br>
+&emsp;[Overview](#overview2) <br>
 &emsp;[Category Distributions](#category-distributions) <br>
 &emsp;[Image sizes](#image-sizes)
 
@@ -289,7 +289,7 @@ The 2nd neural network uses a pre-trained version of the VGG16 neural network [6
 
 As per reference [1], only the classifier weights are retrained since:
 
-- the new dataset is small (~6000 images) while VGG16 was trained over 1.2 million of image;
+- the new dataset is small (~6000 images) while VGG16 was trained over 1.2 million images;
 - the new dataset is similar to the dataset on which VGG16 was trained.
 
 See function `get_model_transfer()` for exact architecture.
@@ -322,7 +322,7 @@ CNN 2 learning curves.
 
 ### Test
 
-CNN 2 met the accuracy requirement was selected as the best model and was ran on the test dataset. The accuracy requirement was still met.
+CNN 2 met the accuracy requirement and was selected as the best model. It was ran on the test dataset and the accuracy requirement was still met.
 
 | Neural Network                 | Test accuracy    |
 |--------------------------------|------------------|
