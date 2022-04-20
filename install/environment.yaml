@@ -1,0 +1,43 @@
+# Landmark classification for social media
+name: landmark
+channels:
+  # Install packages from pytorch channel first to avoid incompatibilities
+  - pytorch
+  - defaults
+dependencies:
+  # Install Python 3.8 or newer. This worked well for most projects.
+  - python=3.8
+  # Packages which do not require a specific version
+  - dash
+  - jupyterlab
+  - numpy
+  - pandas
+  - pillow
+  - pip
+  - plotly
+  # Tabulate
+  # Required by pandas.DataFrame.to_markdown()
+  - tabulate
+  # IPyWidgets
+  # Required for progress bars when downloading torchvision models in Jupyter
+  # Lab (no ipywidgets causes a crash).
+  - ipywidgets          
+  # CUDA Toolkit
+  # Update depending on CUDA version on your system.
+  - cudatoolkit=11.3
+  # PyTorch
+  # Install lastest stable version from the address below.
+  #  https://pytorch.org/get-started/locally/
+  # Older versions may install in "cpuonly" mode. This prevents from using GPUs.
+  - pytorch=1.11
+  # Torchvision
+  # Install latest stable version from the address below.
+  # https://pytorch.org/vision/stable/index.html
+  # to be consistent with PyTorch version installed above.
+  - torchvision=0.12
+  - pip:
+    # Jupyter Notebook
+    # Version >= 0.2.8 required to avoid some bugs with latest jupyterlab.
+    # Ref: https://stackoverflow.com/questions/68121775/jupyterlab-is-broken
+    - nbclassic>=0.2.8  
+
