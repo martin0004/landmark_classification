@@ -83,7 +83,7 @@ dev/
     
 images/                     Images for the README.
 
-landmark.py                 CNN and supporting classes/functions.
+landmark.py                 CNNs and supporting classes/functions.
 testme.jpg                  Dummy image for testing neural network.
 categories.json             Image categories (IDs & names).
 
@@ -105,7 +105,7 @@ However, when the image does not contain GPS data, an alternate method to pinpoi
 
 - Design 2 CNNs to classify an image based on a landmark in this image.
 	+ 1 CNN "from scratch".
-	+ 1 CNN using transfer.
+	+ 1 CNN using transfer learning.
 - Select the best CNN (target accuracy > 60%).
 - Create a simple interface for others to run the best CNN developed above.
 
@@ -215,7 +215,7 @@ As per reference [1], only the classifier weights are retrained since:
 - the new dataset is small (~6000 images) while VGG16 was trained over 1.2 million images;
 - the new dataset is similar to the dataset on which VGG16 was trained.
 
-See function `get_model_transfer()` for exact architecture.
+See function `get_model_transfer` for exact architecture.
 
 <img src="images/cnn-arch-vgg-16.png"/>
 
