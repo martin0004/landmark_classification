@@ -24,7 +24,7 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 
 [DATA](#data)
 
-&emsp;[Overview](#overview2) <br>
+&emsp;[Input Data](#input-data) <br>
 &emsp;[Category Distributions](#category-distributions) <br>
 &emsp;[Image sizes](#image-sizes)
 
@@ -189,7 +189,7 @@ However, when the image does not contain GPS data, an alternate method to pinpoi
 
 # Data
 
-### Overview
+### Input Data
 
 CNNs in this project are trained using a dataset of landmark images provided by Udacity [3]. This dataset contains about 6000 images divided into 50 categories.  Image category ID/names are stored in file `categories.json`.
 
