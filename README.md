@@ -11,7 +11,39 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 
 # Table of Contents
 
-(to do...)
+[SETUP](#setup)
+
+&emsp;[Install](#install)<br>
+&emsp;[Usage](#usage) <br>
+&emsp;[Project Files](#project-files)
+
+[PROBLEM](#problem)
+
+&emsp;[Overviews](#overview) <br>
+&emsp;[Requirements](#requirements)
+
+[DATA](#data)
+
+&emsp;[Overview](#overview) <br>
+&emsp;[Category Distributions](#category-distributions) <br>
+&emsp;[Image sizes](#image-sizes)
+
+[DESIGN](#design)
+
+&emsp;[Pipeline](#pipeline) <br>
+&emsp;[Valid Dataset](#valid-dataset) <br>
+&emsp;[Data Loaders](#data-loaders) <br>
+&emsp;[Data Pre-Processor](#data-pre-processor) <br>
+&emsp;[CNN 1 - From Scratch](#cnn-1-from-scratch) <br>
+&emsp;[CNN 2 - From Transfer Learning](#cnn-2-from-transfer-learning) <br>
+&emsp;[Train](#train) <br>
+&emsp;[Test](#test) <br>
+&emsp;[Predict](#predict) <br>
+
+[APPENDIX](#appendix)
+
+&emsp;[Accronyms](#accronyms) <br>
+&emsp;[References](#references)
 
 
 
@@ -216,9 +248,9 @@ The neural networks developped in this project are part of the following machine
 
 A validation dataset was created by taking 25 % of the train dataset. This created a final train-valid-test data split of 60-20-20%.
 
-### Data Loader
+### Data Loaders
 
-The data loader reads an image from disk, performs pre-processing on the picture and returns a tensor which can be manipulated by the neural network.
+Data loaders read an image from disk, perform pre-processing on the picture and return a tensor which can be manipulated by the neural network.
 
 The **train dataloader** performs the following data pre-processing (which includes data augmentation).
 
