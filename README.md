@@ -19,7 +19,7 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 
 [PROBLEM](#problem)
 
-&emsp;[Overviews](#overview) <br>
+&emsp;[Overview](#overview) <br>
 &emsp;[Requirements](#requirements)
 
 [DATA](#data)
@@ -34,8 +34,8 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 &emsp;[Valid Dataset](#valid-dataset) <br>
 &emsp;[Data Loaders](#data-loaders) <br>
 &emsp;[Data Pre-Processor](#data-pre-processor) <br>
-&emsp;[CNN 1 - From Scratch](#cnn-1-from-scratch) <br>
-&emsp;[CNN 2 - From Transfer Learning](#cnn-2-from-transfer-learning) <br>
+&emsp;[CNN 1 - From Scratch](#cnn-1---from-scratch) <br>
+&emsp;[CNN 2 - From Transfer Learning](#cnn-2---from-transfer-learning) <br>
 &emsp;[Train](#train) <br>
 &emsp;[Test](#test) <br>
 &emsp;[Predict](#predict) <br>
