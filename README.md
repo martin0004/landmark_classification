@@ -14,7 +14,6 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 [SETUP](#setup)
 
 &emsp;[Install](#install)<br>
-&emsp;[Usage](#usage) <br>
 &emsp;[Project Files](#project-files)
 
 [PROBLEM](#problem)
@@ -38,7 +37,12 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 &emsp;[CNN 2 - From Transfer Learning](#cnn-2---from-transfer-learning) <br>
 &emsp;[Train](#train) <br>
 &emsp;[Test](#test) <br>
-&emsp;[Predict](#predict) <br>
+
+[IMPLEMENTATION](#implementation)
+
+&emsp;[landmark.py](#landmark.py)<br>
+&emsp;[Usage - Train the CNN](#tusage---rain-the-cnn)<br>
+&emsp;[Usage - Predict With the CNN](#usage---predict-with-the-cnn)<br>
 
 [APPENDIX](#appendix)
 
@@ -64,86 +68,6 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 	$ conda activate landmark
 
 4 - Download the [dataset](https://udacity-dlnfd.s3-us-west-1.amazonaws.com/datasets/landmark_images.zip) for this project and extract it into directory `data/`.
-
-### Usage
-
-1 - Train the neural network.
-
-```
-from landmark import *
-import torch
-import torch.optim as optim
-
-# Directories of train-test data
-dir_train = "data/landmark_images/train"
-dir_test = "data/landmark_images/test"
-
-# File containing image categories & indexes
-file_categories = "categories.json"
-
-# Model checkpoint & metrics file
-file_checkpoint = "model_checkpoint.pt"
-file_metrics = "model_metrics.json"
-
-# Device for calculations (CPU/GPU)
-device = "cuda" if torch.cuda.is_available else "cpu"
-
-# Get DataLoaders
-dls = get_data_loaders(dir_train, None, dir_test, 0.25)
-
-# Instantiate CNN built from transfer learning
-model = get_model_transfer()
-
-# Train model
-
-n_epochs = 50
-criterion = nn.NLLLoss()
-optimizer = optim.SGD(model.classifier.parameters(), lr=0.01)
-
-for param in model.features.parameters():
-    # Disable gradient calculations on features
-    param.requires_grad = False
-
-train(n_epochs, dls, model, optimizer, criterion, file_checkpoint, file_metrics, device)
-
-# Plot training metrics
-plot_metrics_file(file_metrics)
-
-```
-
-
-<img src="images/learning-curves-transfer.png"/>
-
-2 - Predict categories for an image.
-
-```
-import json
-from landmark import *
-import torch
-
-# File containing image categories & indexes
-file_categories = "categories.json"
-
-# Dummy file for predictions
-file_testme = "testme.jpg"
-
-# Device for calculations (CPU/GPU)
-device = "cuda" if torch.cuda.is_available else "cpu"
-
-# File containing image categories & indexes
-with open(file_categories, "r") as f:
-    d_categories = json.load(f)
-
-# Load model checkpoint 
-model = get_model_transfer()
-model.load_state_dict(torch.load("model_checkpoint.pt"))
-
-# Predict k most likely categories
-plot_top_k_categories(model, file_testme, d_categories, 3, device)
-
-```
-
-<img src="images/predictions-transfer.png"/> 
 
 ### Project Files
 
@@ -328,11 +252,92 @@ CNN 2 met the accuracy requirement and was selected as the best model. It was ra
 |--------------------------------|------------------|
 | CNN 2 (from transfer learning) | 74 %            |
 
-### Predict
 
-The selected CNN (and its associated pipeline) was implemented in file `landmark.py` and can now be used to perform predictions on an image it has never seen before. Refer to section "Usage" above for code example.
+# IMPLEMENTATION
 
-<img src="images/predictions-transfer.png"> 
+### landmark.py
+
+The selected CNN (and its associated pipeline) was implemented in file `landmark.py` and can now be used to perform predictions on an image it has never seen before.
+
+### Usage - Train the CNN
+
+```
+from landmark import *
+import torch
+import torch.optim as optim
+
+# Directories of train-test data
+dir_train = "data/landmark_images/train"
+dir_test = "data/landmark_images/test"
+
+# File containing image categories & indexes
+file_categories = "categories.json"
+
+# Model checkpoint & metrics file
+file_checkpoint = "model_checkpoint.pt"
+file_metrics = "model_metrics.json"
+
+# Device for calculations (CPU/GPU)
+device = "cuda" if torch.cuda.is_available else "cpu"
+
+# Get DataLoaders
+dls = get_data_loaders(dir_train, None, dir_test, 0.25)
+
+# Instantiate CNN built from transfer learning
+model = get_model_transfer()
+
+# Train model
+
+n_epochs = 50
+criterion = nn.NLLLoss()
+optimizer = optim.SGD(model.classifier.parameters(), lr=0.01)
+
+for param in model.features.parameters():
+    # Disable gradient calculations on features
+    param.requires_grad = False
+
+train(n_epochs, dls, model, optimizer, criterion, file_checkpoint, file_metrics, device)
+
+# Plot training metrics
+plot_metrics_file(file_metrics)
+
+```
+
+
+<img src="images/learning-curves-transfer.png"/>
+
+
+### Usage - Predict With the CNN
+
+```
+import json
+from landmark import *
+import torch
+
+# File containing image categories & indexes
+file_categories = "categories.json"
+
+# Dummy file for predictions
+file_testme = "testme.jpg"
+
+# Device for calculations (CPU/GPU)
+device = "cuda" if torch.cuda.is_available else "cpu"
+
+# File containing image categories & indexes
+with open(file_categories, "r") as f:
+    d_categories = json.load(f)
+
+# Load model checkpoint 
+model = get_model_transfer()
+model.load_state_dict(torch.load("model_checkpoint.pt"))
+
+# Predict k most likely categories
+plot_top_k_categories(model, file_testme, d_categories, 3, device)
+
+```
+
+<img src="images/predictions-transfer.png"/> 
+
 
 
 
