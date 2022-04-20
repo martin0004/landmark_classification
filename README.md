@@ -40,8 +40,8 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 
 [IMPLEMENTATION](#implementation)
 
-&emsp;[landmark.py](#landmark-py)<br>
-&emsp;[Usage - Train the CNN](#tusage---train-the-cnn)<br>
+&emsp;[landmark.py](#landmarkpy)<br>
+&emsp;[Usage - Train the CNN](#usage---train-the-cnn)<br>
 &emsp;[Usage - Predict With the CNN](#usage---predict-with-the-cnn)<br>
 
 [APPENDIX](#appendix)
