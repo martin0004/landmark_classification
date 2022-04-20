@@ -84,7 +84,7 @@ dev/
 images/                     Images for the README.
 
 install/
-    environment.yaml             Conda environment file.
+    environment.yaml        Conda environment file.
 
 landmark.py                 CNNs and supporting classes/functions.
 testme.jpg                  Dummy image for testing neural network.
