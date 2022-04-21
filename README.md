@@ -2,7 +2,7 @@
 
 # Landmark Classification
 
-This project develops a neural network for identifying landmark on social media images. The project explores 2 methodologies: building a neural network "from scratch" and building a neural network using transfer learning (VGG16).
+This project develops convolutional neural networks (CNNs) for identifying landmarks on social media images. The project explores 2 methodologies: building a neural network "from scratch" and building a neural network using transfer learning (based on the VGG16 pre-trained model).
 
 This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This README acts as a final report for the project.
 
@@ -24,6 +24,7 @@ This is the 2nd project in Udacity's Deep Learning Nanodegree [1][2]. This READM
 [DATA](#data)
 
 &emsp;[Input Data](#input-data) <br>
+&emsp;[Train-Test Datasets](#train-test-datasets) <br>
 &emsp;[Category Distributions](#category-distributions) <br>
 &emsp;[Image sizes](#image-sizes)
 
@@ -176,13 +177,13 @@ A validation dataset was created by taking 25 % of the train dataset. This creat
 
 ### Data Loaders
 
-Data loaders read an image from disk, perform pre-processing on the picture and return a tensor which can be manipulated by the neural network.
+Data loaders read images from disk, perform pre-processing on these images and return tensors which can be manipulated by the neural networks.
 
-The **train dataloader** performs the following data pre-processing (which includes data augmentation).
+The **training dataloader** performs the following data pre-processing (which includes data augmentation).
 
 <img src="images/data-loader-train.png"/> 
 
-And the **valid/test dataloaders** perform the following pre-processing.
+And the **validation/test dataloaders** perform the following pre-processing.
 
 <img src="images/data-loader-test.png"/>
 
